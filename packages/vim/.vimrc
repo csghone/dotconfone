@@ -50,8 +50,8 @@ filetype plugin on
 set fileencodings=   " don't do any encoding conversion (otherwise munges binary files)
 syntax on            " Syntax Highlighting
 " set t_Co=256       " xterm
-set background="dark" 
-colorscheme torte
+"set background="dark" 
+"colorscheme torte
 
 " Completion
 set wildmode=longest,full
@@ -80,7 +80,7 @@ if has('gui_running')
     set guioptions-=l
     set guioptions-=r
     set guioptions-=R
-    colorscheme ir_black
+    "colorscheme ir_black
 endif
 
 " Completely turn of blinking
@@ -95,8 +95,9 @@ endif
 
 " Build cscope database and ctags with CTRL+F12
 ":source ~/.vim/plugin/cscope_maps.vim
-map <C-F12> :!cscope_gen.sh; ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-"set tags+=~/.vim/tags/cpp;./tags;~/tags
+"map <C-F12> :!cscope_gen.sh; ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+"set tags+=~/.vim/tags/cpp;./tags
+cs add ~/cscope.out
 set tags=~/tags
 
 " Dictionary for keyword i_C-X_C-K completion 
@@ -237,7 +238,10 @@ set tabstop=2     " Number of spaces that a <Tab> in the file counts for.
 set softtabstop=2 " Backspace the proper number of spaces
 "set listchars=tab:➝\ ,space:·
 "set listchars=tab:»·,space:·
-set listchars=tab:»\ ,nbsp:\ 
+set listchars=tab:»\ ,space:\ ,trail:»
 
 set list
+
+colorscheme spring-night
+set cc=81
 
