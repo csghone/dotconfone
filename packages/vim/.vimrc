@@ -13,7 +13,7 @@ set history=10000      " Number of things to remember in history.
 set timeoutlen=250     " Time to wait after ESC (default causes an annoying delay)
 set laststatus=2       " Always show status line.
 set directory=~/.vim/
-set tildeop            "Enable using tilde to swap case
+set tildeop            " Enable using tilde to swap case
 set ruler              " Ruler on
 set nu                 " Line numbers on
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l/%L,%c\ %)%P
@@ -33,15 +33,15 @@ set expandtab
 set smarttab
 set smartindent   " smart indent of code - indent after opening '{',
 set autoindent    " Copy indent from current line when starting a new line
-set shiftwidth=4  " Number of spaces to use for each step of (auto)indent
-set tabstop=4     " Number of spaces that a <Tab> in the file counts for.
-set softtabstop=4 " Backspace the proper number of spaces
+set shiftwidth=2  " Number of spaces to use for each step of (auto)indent
+set tabstop=2     " Number of spaces that a <Tab> in the file counts for.
+set softtabstop=2 " Backspace the proper number of spaces
 set shiftround    " Round indent to multiple of 'shiftwidth'
 
 " Wrapping
 set wrap
 set sidescroll=5
-set listchars+=precedes:<,extends:>
+"set listchars+=precedes:<,extends:>
 
 " Filetype and Synatx Highlighting
 filetype on          " Automatically detect file types
@@ -49,7 +49,7 @@ filetype indent on   " Filetype specific indentation
 filetype plugin on
 set fileencodings=   " don't do any encoding conversion (otherwise munges binary files)
 syntax on            " Syntax Highlighting
-" set t_Co=256       " xterm
+"set t_Co=256        " xterm
 "set background="dark" 
 "colorscheme torte
 
@@ -59,12 +59,12 @@ set wildignore+=*.o,*~,.lo " ignore object files
 set wildmenu               " menu has tab completion
 
 " Folds
-noremap <space> za    " Toggle folding
+"noremap <space> za   " Toggle folding
 set foldlevel=100     " Default all folds open
 set foldmethod=indent " Set foldmethod
 
 "Set home directory
-:cd ~
+":cd ~
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " gvim stuff
@@ -80,7 +80,6 @@ if has('gui_running')
     set guioptions-=l
     set guioptions-=r
     set guioptions-=R
-    "colorscheme ir_black
 endif
 
 " Completely turn of blinking
@@ -91,13 +90,16 @@ endif
 " Miscellaneous Tweaks
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Y yanks till the end of the line
-:map Y y$
+":map Y y$
 
 " Build cscope database and ctags with CTRL+F12
 ":source ~/.vim/plugin/cscope_maps.vim
 "map <C-F12> :!cscope_gen.sh; ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "set tags+=~/.vim/tags/cpp;./tags
-cs add ~/cscope.out
+if filereadable("~/cscope.out")
+  cs reset
+  cs add ~/cscope.out
+endif
 set tags=~/tags
 
 " Dictionary for keyword i_C-X_C-K completion 
@@ -113,7 +115,7 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " Visual Mode Swapping Goodness!
-:vnoremap <C-X> <Esc>`.``gvP``P
+":vnoremap <C-X> <Esc>`.``gvP``P
 
 " Edit the vimrc files easily
 :nmap ,es :source ~/.vimrc<CR>
@@ -129,7 +131,7 @@ let html_use_css=1
 let use_xhtml=1
 
 " Quickfix Window
-map <F11> <esc>:copen<cr> 
+map <F6> <esc>:copen<cr><C-w>J
 map cn <esc>:cn<cr>
 map cp <esc>:cp<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -195,9 +197,9 @@ autocmd Syntax cpp call EnhanceCppSyntax()
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
-:let NERDTreeWinPos="right"
-:let NERDTreeWinSize=30
-nmap <silent> <F8> :NERDTreeToggle<CR>
+:let NERDTreeWinPos="left"
+:let NERDTreeWinSize=35
+nmap <silent> E :NERDTreeToggle<CR>
 " Don't autostart
 "autocmd VimEnter * NERDTree
 "autocmd VimEnter * wincmd p
@@ -225,6 +227,7 @@ let Tlist_Process_File_Always = 1
 
 map <C-Left> b
 map <C-Right> w
+
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
     execute "set <xUp>=\e[1;*A"
@@ -233,15 +236,11 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
-set shiftwidth=2  " Number of spaces to use for each step of (auto)indent
-set tabstop=2     " Number of spaces that a <Tab> in the file counts for.
-set softtabstop=2 " Backspace the proper number of spaces
-"set listchars=tab:➝\ ,space:·
-"set listchars=tab:»·,space:·
-set listchars=tab:»\ ,space:\ ,trail:»
+"set listchars=tab:➝\ ,space:·,trail:·
+set listchars=tab:»\ ,nbsp:\ ,trail:»
 
 set list
 
+"colorscheme torte
 colorscheme spring-night
 set cc=81
-
