@@ -33,9 +33,9 @@ set expandtab
 set smarttab
 set smartindent   " smart indent of code - indent after opening '{',
 set autoindent    " Copy indent from current line when starting a new line
-set shiftwidth=2  " Number of spaces to use for each step of (auto)indent
-set tabstop=2     " Number of spaces that a <Tab> in the file counts for.
-set softtabstop=2 " Backspace the proper number of spaces
+set shiftwidth=4  " Number of spaces to use for each step of (auto)indent
+set tabstop=4     " Number of spaces that a <Tab> in the file counts for.
+set softtabstop=4 " Backspace the proper number of spaces
 set shiftround    " Round indent to multiple of 'shiftwidth'
 
 " Wrapping
@@ -243,4 +243,4 @@ set list
 
 "colorscheme torte
 colorscheme spring-night
-set cc=81
+autocmd FileType  c,cpp,h,hpp,cxx   setlocal cc=81 | setlocal shiftwidth=2| setlocal tabstop=2| setlocal softtabstop=2
