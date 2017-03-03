@@ -241,6 +241,6 @@ set listchars=tab:»\ ,nbsp:\ ,trail:»
 
 set list
 
-"colorscheme torte
-colorscheme spring-night
+colorscheme torte
+"colorscheme spring-night
 autocmd FileType  c,cpp,h,hpp,cxx   setlocal cc=81 | setlocal shiftwidth=2| setlocal tabstop=2| setlocal softtabstop=2
