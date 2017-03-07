@@ -107,8 +107,8 @@ set dictionary=/usr/share/dict/words
 " For manpages
 set keywordprg=man\ -P\ more
 
-" AutoChange directory on switching buffers
-autocmd BufEnter * lcd %:p:h 
+" AutoChange directory on switching buffers - This breaks ConqueGdb
+" autocmd BufEnter * lcd %:p:h 
 
 " Move more screenfuls at a time
 nnoremap <C-e> 3<C-e>
@@ -131,7 +131,7 @@ let html_use_css=1
 let use_xhtml=1
 
 " Quickfix Window
-map <F6> <esc>:copen<cr><C-w>J
+map <F6> <esc>:cf<cr><esc>:copen<cr><C-w>J
 map cn <esc>:cn<cr>
 map cp <esc>:cp<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -226,7 +226,7 @@ let Tlist_Process_File_Always = 1
 
 
 map <C-Left> b
-map <C-Right> w
+map <C-Right> e
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
@@ -244,3 +244,4 @@ set list
 colorscheme torte
 "colorscheme spring-night
 autocmd FileType  c,cpp,h,hpp,cxx   setlocal cc=81 | setlocal shiftwidth=2| setlocal tabstop=2| setlocal softtabstop=2
+autocmd FileType  conque_term       setlocal nolist
