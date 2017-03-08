@@ -131,7 +131,7 @@ let html_use_css=1
 let use_xhtml=1
 
 " Quickfix Window
-map <F6> <esc>:cf<cr><esc>:copen<cr><C-w>J
+map <F6> <esc>:cf<cr><esc>:copen<cr><C-w>J<cr>
 map cn <esc>:cn<cr>
 map cp <esc>:cp<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
