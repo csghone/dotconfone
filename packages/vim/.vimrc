@@ -131,7 +131,7 @@ let html_use_css=1
 let use_xhtml=1
 
 " Quickfix Window
-map <F6> <esc>:cf<cr><esc>:copen<cr><C-w>J<cr>
+map <F6> <esc>:cf<cr><esc>:copen<cr><esc><C-w>J<esc>:cf<cr>
 map cn <esc>:cn<cr>
 map cp <esc>:cp<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -141,13 +141,16 @@ map cp <esc>:cp<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Splits
 :set winminheight=0
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <C-W><C-Left> <C-W>h
+map <C-W><C-Right> <C-W>l
 
 " Zoom current window
-map <C-z> <C-W>_
+"map <C-z> <C-W>_
+" Resize window
+map <C-z> <C-W><
+map <C-x> <C-W>>
+map <C-m> <C-W>+
+map <C-n> <C-W>-
 
 " Tabs
 ":map <C-t> :tabnew<CR>
@@ -241,7 +244,13 @@ set listchars=tab:»\ ,nbsp:\ ,trail:»
 
 set list
 
-colorscheme torte
+colorscheme csg
+"colorscheme candycode
+"colorscheme asu1dark
+"colorscheme torte
 "colorscheme spring-night
+"colorscheme wombat256
+
 autocmd FileType  c,cpp,h,hpp,cxx   setlocal cc=81 | setlocal shiftwidth=2| setlocal tabstop=2| setlocal softtabstop=2
 autocmd FileType  conque_term       setlocal nolist
+unmap <cr>
