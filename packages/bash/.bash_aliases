@@ -40,7 +40,7 @@ export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 
 
 # make commands verbose
-alias rm='rm -v'
+alias rm='rm -Iv'
 alias cp='cp -v'
 alias mv='mv -v'
 alias mkdir='mkdir -p -v'
