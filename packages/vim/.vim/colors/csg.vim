@@ -72,7 +72,6 @@ hi Underlined   guifg=#80a0ff guibg=NONE    gui=underline
 hi Statement    term=BOLD cterm=BOLD ctermfg=DarkBlue    ctermbg=Black
 hi Special      term=NONE cterm=NONE ctermfg=DarkGreen   ctermbg=Black
 hi SpecialChar  term=NONE cterm=NONE ctermfg=Cyan        ctermbg=Black
-hi Constant     term=NONE cterm=NONE ctermfg=Blue        ctermbg=Black
 hi Comment      term=NONE cterm=NONE ctermfg=DarkGray    ctermbg=Black
 hi Preproc      term=NONE cterm=NONE ctermfg=DarkGreen   ctermbg=Black
 hi Type         term=NONE cterm=NONE ctermfg=DarkMagenta ctermbg=Black
@@ -100,7 +99,7 @@ hi PmenuSbar    ctermfg=black       ctermbg=black       cterm=NONE
 hi PmenuThumb   ctermfg=gray        ctermbg=gray        cterm=NONE
 hi StatusLine   ctermfg=yellow      ctermbg=darkblue    cterm=bold
 hi StatusLineNC ctermfg=black       ctermbg=gray        cterm=NONE
-hi WildMenu     ctermfg=white       ctermbg=darkblue    cterm=bold
+hi WildMenu     ctermfg=white       ctermbg=red         cterm=bold
 hi VertSplit    ctermfg=white       ctermbg=white       cterm=NONE
 hi TabLine      ctermfg=black       ctermbg=white       cterm=NONE
 hi TabLineFill  ctermfg=black       ctermbg=white       cterm=NONE
@@ -120,7 +119,7 @@ hi MoreMsg      ctermfg=green       ctermbg=NONE        cterm=NONE
 hi ErrorMsg     ctermfg=white       ctermbg=red         cterm=bold
 hi WarningMsg   ctermfg=yellow      ctermbg=NONE        cterm=bold
 hi Comment      ctermfg=brown       ctermbg=NONE        cterm=NONE
-hi Constant     ctermfg=red         ctermbg=NONE        cterm=NONE
+hi Constant     ctermfg=66CC00      ctermbg=NONE        cterm=NONE
 hi Boolean      ctermfg=red         ctermbg=NONE        cterm=bold
 hi Identifier   ctermfg=yellow      ctermbg=NONE        cterm=NONE
 hi Statement    ctermfg=green       ctermbg=NONE        cterm=bold
