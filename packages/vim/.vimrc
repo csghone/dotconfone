@@ -3,7 +3,7 @@ set nocompatible       " We don't want vi compatibility.
 set ttyfast
 set lazyredraw
 set showcmd            " Show (partial) command in status line.
-set showmatch          " Show matching brackets.
+set noshowmatch        " Show matching brackets.
 set mouse=a            " Enable mouse usage (all modes) in terminals
 set mousehide          " Hide mouse after chars typed
 set encoding=utf-8     " you really should be using utf-8 now
@@ -251,6 +251,9 @@ colorscheme csg
 "colorscheme spring-night
 "colorscheme wombat256
 
+unmap <cr>
+imap <C-Right> <esc>ea
+imap <C-Left> <esc>bi
+
 autocmd FileType  c,cpp,h,hpp,cxx   setlocal cc=81 | setlocal shiftwidth=2| setlocal tabstop=2| setlocal softtabstop=2
 autocmd FileType  conque_term       setlocal nolist
-unmap <cr>
