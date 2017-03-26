@@ -167,6 +167,6 @@ alias ssh='ssh -X'
 
 alias myeclipse='GTK2_RC_FILES=~/.gtkrc-eclipse ~/programs/eclipse/eclipse'
 alias mysource="find \`pwd\` -regex '.*\.[i,c,h][n,p]?[l,p]?$'"
-
 unalias vi
+alias fix='reset; stty sane; tput rs1; clear; echo -e "\033c"'
 
