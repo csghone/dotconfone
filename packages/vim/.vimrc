@@ -255,6 +255,12 @@ set listchars=tab:»\ ,nbsp:\ ,trail:»
 
 set list
 
+"Hack for color consistency
+if $COLORTERM == 'gnome-terminal' || $COLORTERM == 'mate-terminal'
+    set t_Co=256
+endif
+
+
 colorscheme noblesse
 "colorscheme csg
 "colorscheme candycode
@@ -262,15 +268,6 @@ colorscheme noblesse
 "colorscheme torte
 "colorscheme spring-night
 "colorscheme wombat256
-
-set background="dark"
-set t_Co=256
-
-"Hack for color consistency
-"if $COLORTERM == 'gnome-terminal' || $COLORTERM == 'mate-terminal'
-"    set t_Co=256
-"endif
-
 
 "unmap <cr>
 imap <C-Right> <esc>ea
