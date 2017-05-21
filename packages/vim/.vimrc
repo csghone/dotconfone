@@ -52,9 +52,7 @@ filetype indent on   " Filetype specific indentation
 filetype plugin on
 set fileencodings=   " don't do any encoding conversion (otherwise munges binary files)
 syntax on            " Syntax Highlighting
-"set t_Co=256        " xterm
-"set background="dark"
-"colorscheme torte
+" colorscheme selection is below
 
 " Completion
 set wildmode=longest,full
@@ -257,17 +255,19 @@ set listchars=tab:»\ ,nbsp:\ ,trail:»
 
 set list
 
-colorscheme csg
+"Hack for color consistency
+if $COLORTERM == 'gnome-terminal' || $COLORTERM == 'mate-terminal'
+    set t_Co=256
+endif
+
+
+colorscheme noblesse
+"colorscheme csg
 "colorscheme candycode
 "colorscheme asu1dark
 "colorscheme torte
 "colorscheme spring-night
 "colorscheme wombat256
-
-"Hack for color consistency
-if $COLORTERM == 'gnome-terminal' || $COLORTERM == 'mate-terminal'
-    set t_Co=256
-endif
 
 "unmap <cr>
 imap <C-Right> <esc>ea
