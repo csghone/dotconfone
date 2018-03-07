@@ -14,9 +14,11 @@ import logging.handlers
 
 logger = logging.getLogger()
 LOG_FORMATTER = logging.Formatter(
-    "%(asctime)s - %(name)s - %(levelname)s - " +
+    "%(asctime)s.%(msecs)03d - %(name)s - %(levelname)s - " +
     "%(lineno)s - %(funcName)s - " +
-    "%(message)s")
+    "%(message)s",
+    "%Y%m%d %H:%M:%S")
+
 
 def setup_logging(level=logging.INFO):
     file_log_handler = logging.handlers.RotatingFileHandler(
