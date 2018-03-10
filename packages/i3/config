@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $psst --no-startup-id
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -94,9 +95,14 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Create custom workspaces
+set $ws1 "1: "
+set $ws2 "2: "
+
+
 # switch to workspace
-bindsym $mod+1              workspace 1
-bindsym $mod+2              workspace 2
+bindsym $mod+1              workspace $ws1
+bindsym $mod+2              workspace $ws2
 bindsym $mod+3              workspace 3
 bindsym $mod+4              workspace 4
 bindsym $mod+5              workspace 5
@@ -116,8 +122,8 @@ bindsym $mod+End            workspace back_and_forth
 bindsym $mod+Control+Up     exec python3 /usr/bin/i3_move_all.py
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
@@ -127,12 +133,37 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# Lock screen
+set $i3lock i3lock --ignore-empty-password --show-failed-attempts -c 333333 -t -i `grep -o "/.*png" ~/.fehbg` && exec xset dpms force off
+bindsym $mod+l exec $i3lock
+exec_always --no-startup-id xautolock -time 15 -locker 'i3lock -i `grep -o \"\/.*png\" ~/.fehbg` -c 333333 ; xset dpms force off'
+
+
+# Exit command
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# set $mode_system    LOCK[L]        LOGOUT[G]        SLEEP[P]        REBOOT[R]        SHUTDOWN[S]
+set $mode_system    LOCK[L]        LOGOUT[G]        ⏾SLEEP[P]        REBOOT[R]        SHUTDOWN[S]
+bindsym $mod+Shift+e mode "$mode_system"
+
+mode "$mode_system" {
+    bindsym l exec $i3lock , mode "default"
+    bindsym g exec $psst ~/.config/i3/i3exit.sh logout, mode "default"
+    bindsym p exec $psst ~/.config/i3/i3exit.sh suspend, mode "default"
+    bindsym r exec $psst ~/.config/i3/i3exit.sh reboot, mode "default"
+    bindsym s exec $psst ~/.config/i3/i3exit.sh poweroff, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -187,16 +218,13 @@ bindsym $mod+minus scratchpad show
 bindsym XF86MonBrightnessUp   exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
-# Lock screen
-bindsym $mod+l exec i3lock -c 333333 -t -i `grep -o "/.*png" ~/.fehbg` && exec xset dpms force off
-exec_always --no-startup-id xautolock -time 15 -locker 'i3lock -i `grep -o \"\/.*png\" ~/.fehbg` -c 333333 ; xset dpms force off'
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        #status_command i3status
+        status_command i3status --config ~/.config/i3/i3status.conf
         tray_output primary
-        font xft: mononoki 10px
+        font xft: mononoki 12px
         #mode hide
         modifier $mod
         position top
@@ -204,6 +232,9 @@ bar {
 
 for_window [class="^.*"] border pixel 1
 for_window [class=".*alculator.*"] floating enable
+
+assign [class="Firefox"] $ws1
+assign [class="Google-chrome"] $ws2
 
 for_window [title="Netflix|.* - mpv"] move scratchpad
 for_window [title="Netflix|.* - mpv"] sticky enable
