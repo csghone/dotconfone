@@ -150,7 +150,7 @@ exec_always --no-startup-id xautolock -time 15 -locker 'i3lock -i `grep -o \"\/.
 # Exit command
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # set $mode_system    LOCK[L]        LOGOUT[G]        SLEEP[P]        REBOOT[R]        SHUTDOWN[S]
-set $mode_system    LOCK[L]        LOGOUT[G]        ⏾SLEEP[P]        REBOOT[R]        SHUTDOWN[S]
+set $mode_system     LOCK[L]         LOGOUT[G]        ⏾ SLEEP[P]         REBOOT[R]         SHUTDOWN[S]
 bindsym $mod+Shift+e mode "$mode_system"
 
 mode "$mode_system" {
