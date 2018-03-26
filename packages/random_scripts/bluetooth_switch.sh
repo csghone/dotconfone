@@ -3,9 +3,9 @@
 echo "Restarting Bluetooth"
 sudo systemctl restart bluetooth
 
-#Connect/Disconnect Bluetooth Device
-#This should be something like E9:08:F0:C0:5E:2A
-bluetooth_id=`echo devices|bluetoothctl 2>/dev/null| grep ^Device |gawk -F" " '{print $2}'`
+# Connect/Disconnect Bluetooth Device
+# Parses: 'Device E9:08:F0:C0:5E:2A MPOW' => E9:08:F0:C0:5E:2A
+bluetooth_id=`echo devices|bluetoothctl 2>/dev/null| grep ^Device |grep MPOW |gawk -F" " '{print $2}'`
 echo Bluetooth Device ID: $bluetooth_id
 echo "Connecting to $bluetooth_id"
 echo disconnect $bluetooth_id | bluetoothctl 2>/dev/null > /dev/null
