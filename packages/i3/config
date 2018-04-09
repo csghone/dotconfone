@@ -9,11 +9,13 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-
 set $mod Mod4
 set $psst --no-startup-id
 exec_always $psst xrdb -merge ~/.Xresources
 set $compton_restart "killall compton; compton --opacity-rule '99:window_type = \"dock\" && class_g = \"i3bar\"' -CGb --vsync=opengl-swc --backend=glx"
+
+# fake-outputs 960x540+0+0,960x540+960+0,960x540+0+540,960x540+960+540
+# fake-outputs 3840x1080+0+0,1920x1080+3840+0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -254,10 +256,10 @@ for_window [class=".*alculator.*"] floating enable
 assign [class="Firefox"] $ws1
 assign [class="Google-chrome"] $ws2
 
-for_window [title="Netflix|.* - mpv"] move scratchpad
-for_window [title="Netflix|.* - mpv"] sticky enable
-for_window [title="Netflix|.* - mpv"] move absolute position center
-for_window [title="Netflix|.* - mpv"] resize set 1280 720
+for_window [title="^Netflix$|.* - mpv"] move scratchpad
+for_window [title="^Netflix$|.* - mpv"] sticky enable
+for_window [title="^Netflix$|.* - mpv"] move absolute position center
+for_window [title="^Netflix$|.* - mpv"] resize set 1280 720
 
 # Execute using "google-chrome --app=https://www.jango.com"
 for_window [class="Google-chrome" title=".*Jango"] move workspace $ws10
