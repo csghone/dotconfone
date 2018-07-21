@@ -148,7 +148,7 @@ set $external_display "External display configuration: 🅼 🅼 Mirror[M]      
 bindsym $mod+F8 mode $external_display
 mode $external_display {
     set $laptop "eDP-1"
-    set $prjctr "DP-3"
+    set $prjctr "DP-2"
 
     bindsym m exec $psst xrandr --output $prjctr --auto --primary --output $laptop --auto --same-as $prjctr; restart, mode "default"
     bindsym e exec $psst xrandr --output $laptop --auto --primary --output $prjctr --auto --left-of $laptop; restart, mode "default"
@@ -162,7 +162,7 @@ mode $external_display {
 
 
 # Lock screen
-set $i3lock i3lock --ignore-empty-password --show-failed-attempts -c 333333 -t -i `grep -o "/.*png" ~/.fehbg` && exec xset dpms force off
+set $i3lock i3lock --ignore-empty-password --show-failed-attempts -c 333333 -t -i `grep -o "/.*jpg" ~/.fehbg` && exec xset dpms force off
 bindsym $mod+l exec $i3lock
 exec_always --no-startup-id xautolock -time 15 -locker '$i3lock'
 
@@ -256,10 +256,10 @@ for_window [class=".*alculator.*"] floating enable
 assign [class="Firefox"] $ws1
 assign [class="Google-chrome"] $ws2
 
-for_window [title="^Netflix$|.* - mpv"] move scratchpad
-for_window [title="^Netflix$|.* - mpv"] sticky enable
-for_window [title="^Netflix$|.* - mpv"] move absolute position center
-for_window [title="^Netflix$|.* - mpv"] resize set 1280 720
+for_window [title="^Netflix$|.* - mpv|^Prime Video$"] move scratchpad, scratchpad show
+for_window [title="^Netflix$|.* - mpv|^Prime Video$"] sticky enable
+for_window [title="^Netflix$|.* - mpv|^Prime Video$"] move position center
+for_window [title="^Netflix$|.* - mpv|^Prime Video$"] resize set 1280 720
 
 # Execute using "google-chrome --app=https://www.jango.com"
 for_window [class="Google-chrome" title=".*Jango"] move workspace $ws10
