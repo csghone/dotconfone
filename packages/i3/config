@@ -164,7 +164,7 @@ mode $external_display {
 # Lock screen
 set $i3lock i3lock --ignore-empty-password --show-failed-attempts -c 333333 -t -i `grep -o "/.*jpg" ~/.fehbg` && exec xset dpms force off
 bindsym $mod+l exec $i3lock
-exec_always --no-startup-id xautolock -time 15 -locker '$i3lock'
+exec_always --no-startup-id xautolock -time 15 -corners '----' -locker '$i3lock'
 
 
 # Exit command
