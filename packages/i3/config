@@ -264,7 +264,8 @@ for_window [title="^Netflix$|.* - mpv|^Prime Video$"] resize set 1280 720
 # Execute using "google-chrome --app=https://www.jango.com"
 for_window [class="Google-chrome" title=".*Jango"] move workspace $ws10
 
-client.focused #FF0000 #FF0000 #FFFFFF #0000FF
+client.focused #000000 #404040 #FFFFFF #0000FF
+
 
 # Enable compton to avoid screen tearing, opacity rule is just for reference
 # Test using https://www.youtube.com/watch?v=0RvIbVmCOxg
