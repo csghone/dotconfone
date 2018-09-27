@@ -276,6 +276,8 @@ exec --no-startup-id mate-volume-control-applet
 # Network/Bluetooth access
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
+# Managing screensavers
+exec --no-startup-id caffeine-indicator
 # Provide monitor applet, auto mounting of media
 exec --no-startup-id mate-settings-daemon
 # Set background
