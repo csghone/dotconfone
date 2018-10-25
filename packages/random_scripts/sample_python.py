@@ -9,8 +9,14 @@ from __future__ import print_function
 import os
 import sys
 import argparse
+import traceback
 import logging
 import logging.handlers
+import random
+
+# Requires 'pip install retrying' 
+import retrying
+
 
 logger = logging.getLogger()
 LOG_FORMATTER = logging.Formatter(
@@ -19,18 +25,44 @@ LOG_FORMATTER = logging.Formatter(
     "%(message)s",
     "%Y%m%d %H:%M:%S")
 
-
-def setup_logging(level=logging.INFO):
+def setup_logging(level=logging.INFO, enable_console=True):
     file_log_handler = logging.handlers.RotatingFileHandler(
         "__" + os.path.basename(__file__) + ".main__" + ".log",
         maxBytes=1000000,
         backupCount=5)
     console_log_handler = logging.StreamHandler()
     logger.addHandler(file_log_handler)
-    logger.addHandler(console_log_handler)
+    if enable_console:
+        logger.addHandler(console_log_handler)
     logger.setLevel(level)
     for handler in logging.root.handlers:
         handler.setFormatter(fmt=LOG_FORMATTER)
+
+
+def retry_on_result_check(result):
+    logger.info("Result: %s", result)
+    # Return value should be True (retry) or False (don't retry)
+    return result > 3
+
+
+def retry_on_exception_check(exception):
+    exc_mesg = "".join(traceback.format_tb(exception.__traceback__))
+    logger.error("\n%s", exc_mesg)
+    logger.error("Error: %s", exception)
+    # Return value should be True (retry) or False (don't retry)
+    return isinstance(exception, NameError)
+
+
+@retrying.retry(wait_fixed=1000,
+                retry_on_result=retry_on_result_check,
+                retry_on_exception=retry_on_exception_check)
+def retry_example():
+    if random.randrange(1, 10) > 3:
+        print(a) # Throws NameError
+    else:
+        print("Avoided exception in retry_example")
+    return random.randrange(1, 10)
+
 
 
 def print_variables(**kwargs):
@@ -51,6 +83,10 @@ def process(**kwargs):
     logger.warning("warning")
     logger.error("error")
     logger.critical("critical")
+
+    logger.info("Example usage of retrying module - start")
+    retry_example()
+    logger.info("Example usage of retrying module - end")
 
     return 0
 
@@ -101,4 +137,10 @@ def main():
 
 if __name__ == '__main__':
     setup_logging(level=logging.INFO)
-    sys.exit(main()) # Send return value to shell
+    try:
+        sys.exit(main()) # Ensure return value is passed to shell
+    except Exception as error: # pylint: disable=W0702, W0703
+        exc_mesg = traceback.format_exc()
+        logger.error("\n%s", exc_mesg)
+        logger.error("Error: %s", error)
+        sys.exit(-1)
