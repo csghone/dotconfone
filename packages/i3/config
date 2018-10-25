@@ -16,6 +16,7 @@ set $compton_restart "killall compton; compton --opacity-rule '99:window_type = 
 
 # fake-outputs 960x540+0+0,960x540+960+0,960x540+0+540,960x540+960+540
 # fake-outputs 3840x1080+0+0,1920x1080+3840+0
+# fake-outputs 1920x1080+0+0,1920x1080+1920+0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
