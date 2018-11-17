@@ -27,7 +27,7 @@ if [ $1 == "install" ]; then
     sudo -E apt-get install -y byobu tmux
 
     # Neovim
-    sudo -E apt-get install -y neovim python3-nose clang
+    sudo -E apt-get install -y neovim python3-nose clang python3-csvkit
 
     # Python stuff
     sudo -H pip2 install --upgrade pip
@@ -38,6 +38,9 @@ if [ $1 == "install" ]; then
 
     sudo -H pip2 install --upgrade ipython
     sudo -H pip3 install --upgrade ipython
+
+    sudo -H pip2 install --upgrade retrying requests ipdb
+    sudo -H pip3 install --upgrade retrying awscli boto3 neovim xonsh lxml Mako requests ipdb pylint
 
     sudo -H update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
     sudo -H update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
