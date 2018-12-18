@@ -293,7 +293,7 @@ imap <C-Left> <esc>bi
 autocmd FileType  c,cpp,h,hpp,cxx   setlocal cc=81 | setlocal shiftwidth=2 | setlocal tabstop=2 | setlocal softtabstop=2 | set noic
 autocmd FileType  python            setlocal cc=81
 autocmd FileType  conque_term       setlocal nolist
-autocmd FileType  xml,json          setlocal foldmethod=indent
+autocmd FileType  xml,json          setlocal foldmethod=indent | setlocal cc=81 | setlocal shiftwidth=2 | setlocal tabstop=2 | setlocal softtabstop=2 | set noic
 
 function! Vimdiff()
     let lines = getline(0, '$')
