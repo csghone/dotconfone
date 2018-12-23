@@ -15,59 +15,61 @@ let g:colors_name="csg"
 "let save_cpo = &cpo
 "set cpo&vim
 
-hi Normal       guifg=#ffffff guibg=#050505 gui=NONE
-hi Folded       guifg=#c2bfa5 guibg=#050505 gui=underline
-hi LineNr       guifg=#928c75 guibg=NONE    gui=NONE
-hi Directory    guifg=#00bbdd guibg=NONE    gui=NONE
-hi NonText      guifg=#77ff22 guibg=NONE    gui=bold
-hi SpecialKey   guifg=#559933 guibg=NONE    gui=NONE
-hi SpellBad     guifg=NONE    guibg=NONE    gui=undercurl
-hi SpellCap     guifg=NONE    guibg=NONE    gui=undercurl
-hi SpellLocal   guifg=NONE    guibg=NONE    gui=undercurl
-hi SpellRare    guifg=NONE    guibg=NONE    gui=undercurl
-hi DiffAdd      guifg=#ffffff guibg=#126493 gui=NONE
-hi DiffChange   guifg=#000000 guibg=#976398 gui=NONE
-hi DiffDelete   guifg=#000000 guibg=#be1923 gui=bold
-hi DiffText     guifg=#ffffff guibg=#976398 gui=bold
-hi FoldColumn   guifg=#c8bcb9 guibg=#786d65 gui=bold
-hi SignColumn   guifg=#c8bcb9 guibg=#786d65 gui=bold
-hi Pmenu        guifg=#000000 guibg=#a6a190 gui=NONE
-hi PmenuSel     guifg=#ffffff guibg=#133293 gui=NONE
-hi PmenuSbar    guifg=NONE    guibg=#555555 gui=NONE
-hi PmenuThumb   guifg=NONE    guibg=#cccccc gui=NONE
-hi StatusLine   guifg=#ffffff guibg=#336600 gui=bold
-hi StatusLineNC guifg=#000000 guibg=#cccccc gui=NONE
-hi WildMenu     guifg=#ffffff guibg=#133293 gui=bold
-hi VertSplit    guifg=#c2bfa5 guibg=#c2bfa5 gui=NONE
-hi TabLine      guifg=#000000 guibg=#c2bfa5 gui=NONE
-hi TabLineFill  guifg=#000000 guibg=#c2bfa5 gui=NONE
-hi TabLineSel   guifg=#ffffff guibg=#133293 gui=NONE
-hi Cursor       guifg=#000000 guibg=#ffff99 gui=NONE
-hi CursorIM     guifg=#000000 guibg=#aaccff gui=NONE
-hi CursorLine   guifg=NONE    guibg=#1b1b1b gui=NONE
-hi CursorColumn guifg=NONE    guibg=#1b1b1b gui=NONE
-hi Visual       guifg=#ffffff guibg=#606070 gui=NONE
-hi IncSearch    guifg=#000000 guibg=#eedd33 gui=bold
-hi Search       guifg=#efefd0 guibg=#937340 gui=NONE
-hi MatchParen   guifg=NONE    guibg=#3377aa gui=NONE
-hi ModeMsg      guifg=#eecc18 guibg=NONE    gui=NONE
-hi Title        guifg=#dd4452 guibg=NONE    gui=bold
-hi Question     guifg=#66d077 guibg=NONE    gui=NONE
-hi MoreMsg      guifg=#39d049 guibg=NONE    gui=NONE
-hi ErrorMsg     guifg=#ffffff guibg=#ff0000 gui=bold
-hi WarningMsg   guifg=#ccae22 guibg=NONE    gui=bold
-hi Comment      guifg=#ff9922 guibg=NONE    gui=NONE
-hi Constant     guifg=#ff6050 guibg=NONE    gui=NONE
-hi Boolean      guifg=#ff6050 guibg=NONE    gui=bold
-hi Identifier   guifg=#eecc44 guibg=NONE    gui=NONE
-hi Statement    guifg=#66d077 guibg=NONE    gui=bold
-hi PreProc      guifg=#bb88dd guibg=NONE    gui=NONE
-hi Type         guifg=#4093cc guibg=NONE    gui=bold
-hi Special      guifg=#9999aa guibg=NONE    gui=bold
-hi Ignore       guifg=#888888 guibg=NONE    gui=NONE
-hi Error        guifg=#ffffff guibg=#ff0000 gui=NONE
-hi Todo         guifg=#ffffff guibg=#ee7700 gui=bold
-hi Underlined   guifg=#80a0ff guibg=NONE    gui=underline
+hi Normal       guifg=#ffffff       guibg=#050505 gui=NONE
+hi Folded       guifg=#c2bfa5       guibg=#050505 gui=underline
+hi LineNr       guifg=#928c75       guibg=NONE    gui=NONE
+hi Directory    guifg=#00bbdd       guibg=NONE    gui=NONE
+hi NonText      guifg=#77ff22       guibg=NONE    gui=bold
+hi SpecialKey   guifg=#559933       guibg=NONE    gui=NONE
+hi SpellBad     guifg=NONE          guibg=NONE    gui=undercurl
+hi SpellCap     guifg=NONE          guibg=NONE    gui=undercurl
+hi SpellLocal   guifg=NONE          guibg=NONE    gui=undercurl
+hi SpellRare    guifg=NONE          guibg=NONE    gui=undercurl
+hi DiffAdd      guifg=#ffffff       guibg=#126493 gui=NONE
+hi DiffChange   guifg=#000000       guibg=#976398 gui=NONE
+hi DiffDelete   guifg=#000000       guibg=#be1923 gui=bold
+hi DiffText     guifg=#ffffff       guibg=#976398 gui=bold
+hi FoldColumn   guifg=#c8bcb9       guibg=#786d65 gui=bold
+hi SignColumn   guifg=#c8bcb9       guibg=#786d65 gui=bold
+hi Pmenu        guifg=#000000       guibg=#a6a190 gui=NONE
+hi PmenuSel     guifg=#ffffff       guibg=#133293 gui=NONE
+hi PmenuSbar    guifg=NONE          guibg=#555555 gui=NONE
+hi PmenuThumb   guifg=NONE          guibg=#cccccc gui=NONE
+hi StatusLine   guifg=#ffffff       guibg=#336600 gui=bold
+hi StatusLineNC guifg=#000000       guibg=#cccccc gui=NONE
+hi WildMenu     guifg=#ffffff       guibg=#133293 gui=bold
+hi VertSplit    guifg=#c2bfa5       guibg=#c2bfa5 gui=NONE
+hi TabLine      guifg=#000000       guibg=#c2bfa5 gui=NONE
+hi TabLineFill  guifg=#000000       guibg=#c2bfa5 gui=NONE
+hi TabLineSel   guifg=#ffffff       guibg=#133293 gui=NONE
+hi Cursor       guifg=#000000       guibg=#ffff99 gui=NONE
+hi CursorIM     guifg=#000000       guibg=#aaccff gui=NONE
+hi CursorLine   guifg=NONE          guibg=#1b1b1b gui=NONE
+hi CursorColumn guifg=NONE          guibg=#1b1b1b gui=NONE
+hi Visual       guifg=#ffffff       guibg=#606070 gui=NONE
+hi IncSearch    guifg=#000000       guibg=#eedd33 gui=bold
+hi Search       guifg=#efefd0       guibg=#937340 gui=NONE
+hi MatchParen   guifg=NONE          guibg=#3377aa gui=NONE
+hi ModeMsg      guifg=#eecc18       guibg=NONE    gui=NONE
+hi Title        guifg=#dd4452       guibg=NONE    gui=bold
+hi Question     guifg=#66d077       guibg=NONE    gui=NONE
+hi MoreMsg      guifg=#39d049       guibg=NONE    gui=NONE
+hi ErrorMsg     guifg=#ffffff       guibg=#ff0000 gui=bold
+hi WarningMsg   guifg=#ccae22       guibg=NONE    gui=bold
+hi Comment      guifg=#ff9922       guibg=NONE    gui=NONE
+hi Constant     guifg=#ff6050       guibg=NONE    gui=NONE
+hi Boolean      guifg=#ff6050       guibg=NONE    gui=bold
+hi Identifier   guifg=#eecc44       guibg=NONE    gui=NONE
+hi Statement    guifg=#66d077       guibg=NONE    gui=bold
+hi PreProc      guifg=#bb88dd       guibg=NONE    gui=NONE
+hi Type         guifg=#4093cc       guibg=NONE    gui=bold
+hi Special      guifg=#9999aa       guibg=NONE    gui=bold
+hi SpecialChar  guifg=Orange        guibg=NONE    gui=NONE
+hi Ignore       guifg=#888888       guibg=NONE    gui=NONE
+hi Error        guifg=#ffffff       guibg=#ff0000 gui=NONE
+hi Todo         guifg=#ffffff       guibg=#ee7700 gui=bold
+hi Underlined   guifg=#80a0ff       guibg=NONE    gui=underline
+
 
 hi Normal       ctermfg=white       ctermbg=black       cterm=NONE
 hi Folded       ctermfg=lightgray   ctermbg=black       cterm=underline
@@ -123,5 +125,25 @@ hi Ignore       ctermfg=darkgray    ctermbg=NONE        cterm=NONE
 hi Error        ctermfg=white       ctermbg=red         cterm=NONE
 hi Todo         ctermfg=black       ctermbg=yellow      cterm=bold
 hi Underlined   ctermfg=NONE        ctermbg=NONE        cterm=underline   term=underline
+
+" syn match Braces display '[{}()\[\]]'
+" highlight Braces  guifg=Blue gui=NONE
+hi CurlyBraces  guifg=Orange
+hi SquareBraces guifg=DarkCyan
+hi RoundBraces  guifg=#406090
+
+hi cCppBracket  guifg=DarkCyan
+hi cCppParen    guifg=Orange
+
+" only for vim 5
+if has("unix")
+  if v:version<600
+    highlight Normal  ctermfg=Grey      ctermbg=Black  cterm=NONE  guifg=Grey80    guibg=Black gui=NONE
+    highlight Search  ctermfg=Black     ctermbg=Red    cterm=bold  guifg=Black     guibg=Red   gui=bold
+    highlight Visual  ctermfg=Black     ctermbg=yellow cterm=bold  guifg=#404040               gui=bold
+    highlight Special ctermfg=LightBlue                cterm=NONE  guifg=LightBlue             gui=NONE
+    highlight Comment ctermfg=Cyan                     cterm=NONE  guifg=LightBlue             gui=NONE
+  endif
+endif
 
 "let &cpo = save_cpo
