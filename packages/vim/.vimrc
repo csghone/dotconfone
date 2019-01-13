@@ -8,8 +8,10 @@ set mouse=a            " Enable mouse usage (all modes) in terminals
 set mousehide          " Hide mouse after chars typed
 set encoding=utf-8     " you really should be using utf-8 now
 set termencoding=utf-8 " ditto
-set clipboard^=unnamed
-set clipboard^=unnamedplus " Yanks go on clipboard instead.
+" Allow clipboard copy-paste 'sudo apt-get install xsel' before this step
+set clipboard^=unnamed     " Yanks go on clipboard
+set clipboard^=unnamedplus " Yanks go on clipboard
+" set clipboard=exclude:.* " If startup is slow, comment upper two lines and uncomment this one
 set history=10000      " Number of things to remember in history.
 set timeoutlen=250     " Time to wait after ESC (default causes an annoying delay)
 set laststatus=2       " Always show status line.
@@ -253,8 +255,6 @@ let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Process_File_Always = 1
 
 
-map <C-Left> b
-map <C-Right> e
 
 if &term =~ '^screen'
     " tmux will send xterm-style keys when its xterm-keys option is on
@@ -286,6 +286,8 @@ endif
 "colorscheme wombat256
 
 "unmap <cr>
+map <C-Left> b
+map <C-Right> e
 imap <C-Right> <esc>ea
 imap <C-Left> <esc>bi
 
