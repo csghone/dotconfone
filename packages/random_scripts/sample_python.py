@@ -1,7 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 eg:
-./sample_python.py -w -x opt1 -y 3 -z 1 2 3 -f ~/.bashrc
+python3 ./sample_python.py  -w -x opt1 -y 3 -z 1 2 3 -f ~/.bashrc -d 20190101 --inp_datestring 20191101
 """
 from __future__ import print_function
 
@@ -9,11 +9,12 @@ import os
 import sys
 import argparse
 import traceback
+import datetime
 import logging
 import logging.handlers
 import random
 
-# Requires 'pip install retrying' 
+# Requires 'pip install retrying'
 import retrying
 
 
@@ -79,7 +80,7 @@ def retry_example():
 
 def print_variables(**kwargs):
     for key, value in kwargs.items():
-        print(key, value)
+        print(key, value, type(value))
 
 
 def process(**kwargs):
@@ -87,6 +88,8 @@ def process(**kwargs):
     xval = kwargs["xval"]
     yval = kwargs["yval"]
     zval = kwargs["zval"]
+    inp_file = kwargs["inp_file"]
+    inp_date = kwargs["inp_date"]
 
     print_variables(**kwargs)
 
@@ -158,7 +161,23 @@ def main():
         "--inp_file",
         dest="inp_file",
         help="Input file",
-        type=argparse.FileType(mode='r'),
+        type=argparse.FileType(mode="r"),
+        required=True
+    )
+    parser.add_argument(
+        "-d",
+        "--inp_date",
+        dest="inp_date",
+        help="Input date in %Y%m%d",
+        type=lambda d: datetime.datetime.strptime(d, "%Y%m%d"),
+        required=True
+    )
+    parser.add_argument(
+        "-s",
+        "--inp_datestring",
+        dest="inp_datestring",
+        help="Input datestring in %Y%m%d",
+        type=lambda d: datetime.datetime.strptime(d, "%Y%m%d").strftime("%Y%m%d"),
         required=True
     )
 
@@ -167,7 +186,7 @@ def main():
     return process(**vars(myargs))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     setup_logging(__file__, level=logging.INFO)
     try:
         sys.exit(main()) # Ensure return value is passed to shell
