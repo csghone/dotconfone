@@ -185,4 +185,4 @@ function connect_smarc_board() {
 
 #Common places of interest
 alias smarc=connect_smarc_board
-
+alias sshb="ssh -oRemoteCommand='/bin/bash -il'"
