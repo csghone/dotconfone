@@ -41,7 +41,7 @@ function install_font()
 }
 
 if [ $1 == "install" ]; then
-    sudo -E apt-get install -y fonts-deva*
+    sudo -E apt-get install -y engrampa fonts-deva*
 
     install_font mononoki "https://github.com/madmalik/mononoki/releases/download/1.2/mononoki.zip"
     install_font Monaco "https://raw.githubusercontent.com/todylu/monaco.ttf/master/monaco.ttf"
