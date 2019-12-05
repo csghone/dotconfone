@@ -15,6 +15,7 @@ if [ $1 == "install" ]; then
     sudo -E apt-get install -y xbacklight
     sudo -E apt-get install -y xautolock
     sudo -E apt-get install -y rofi
+    sudo -E apt-get install -y autorandr
     sudo -H pip install i3-py
 fi
 

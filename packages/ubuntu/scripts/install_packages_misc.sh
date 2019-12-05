@@ -25,6 +25,7 @@ if [ $1 == "install" ]; then
     sudo -E apt-get install -y tree htop tilda screen terminator
     sudo -E apt-get install -y ssh sshfs
     sudo -E apt-get install -y byobu tmux
+    sudo -E apt-get install -y galculator traceroute
 
     # Neovim
     sudo -E apt-get install -y neovim python3-nose clang python3-csvkit

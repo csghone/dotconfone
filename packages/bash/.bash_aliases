@@ -137,7 +137,7 @@ alias dpp='dpkg -p'
 alias hd='od -Ad -tx1z -w16 -v'
 
 #cal
-alias cal='cal -3m'
+#alias cal='cal -3m'
 psu(){ command ps -Hcl -F S f -u ${1:-$USER}; }
 
 #twidge
