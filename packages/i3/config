@@ -20,7 +20,7 @@ set $compton_restart "killall compton; compton --opacity-rule '99:window_type = 
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:mononoki,Font Awesome 5 Brands,Font Awesome 5 Free bold 10
+font pango:mononoki,FontAwesome,FontAwesome 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -100,7 +100,7 @@ bindsym $mod+a focus parent
 # Create custom workspaces
 set $ws1 "1: "
 set $ws2 "2: "
-set $ws10 "10: "
+set $ws10 "10: "
 
 
 # switch to workspace
@@ -171,7 +171,7 @@ exec_always --no-startup-id xautolock -time 15 -corners '----' -locker '$i3lock'
 # Exit command
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # set $mode_system    LOCK[L]        LOGOUT[G]        SLEEP[P]        REBOOT[R]        SHUTDOWN[S]
-set $mode_system     LOCK[L]         LOGOUT[G]        ⏾ SLEEP[P]         REBOOT[R]         SHUTDOWN[S]
+set $mode_system     LOCK[L]         LOGOUT[G]        ⏾ SLEEP[P]         REBOOT[R]         SHUTDOWN[S]
 bindsym $mod+Shift+e mode "$mode_system"
 
 mode "$mode_system" {
